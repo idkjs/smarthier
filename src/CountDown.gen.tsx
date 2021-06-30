@@ -1,4 +1,4 @@
-/* TypeScript file generated from CountDown.re by genType. */
+/* TypeScript file generated from CountDown.res by genType. */
 /* eslint-disable import/first */
 
 

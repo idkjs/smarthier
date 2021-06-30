@@ -1,4 +1,4 @@
-/* TypeScript file generated from Rocket.re by genType. */
+/* TypeScript file generated from Rocket.res by genType. */
 /* eslint-disable import/first */
 
 

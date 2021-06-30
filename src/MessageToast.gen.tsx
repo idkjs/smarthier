@@ -1,4 +1,4 @@
-/* TypeScript file generated from MessageToast.re by genType. */
+/* TypeScript file generated from MessageToast.res by genType. */
 /* eslint-disable import/first */
 
 

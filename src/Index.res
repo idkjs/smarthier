@@ -3,4 +3,7 @@ module TSApp = {
   external make: _ => React.element = "make"
 }
 
-ReactDOMRe.renderToElementWithId(<TSApp />, "root")
+switch(ReactDOM.querySelector("#root")){
+| Some(root) => ReactDOM.render(<TSApp />, root)
+| None => ()
+}

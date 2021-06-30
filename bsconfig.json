@@ -15,7 +15,7 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": ["@rescript/react"],
   "ppx-flags": [],
   "gentypeconfig": {
     "language": "typescript",

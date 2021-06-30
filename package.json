@@ -2,17 +2,15 @@
   "name": "app",
   "version": "0.1.0",
   "scripts": {
-    "postinstall": "esy",
-    "build": "rescript build -with-deps",
-    "watch": "rescript build -with-deps -w",
+    "build": "rescript && npx esbuild ./dist/bundle.js --bundle",
     "clean": "rescript clean -with-deps",
-    "webpack": "webpack watch",
-    "webpack:production": "NODE_ENV=production webpack",
-    "server": "webpack serve"
+    "start": "npx concurrently \"yarn copy:html\" \"yarn watch:rescript\" \"yarn watch:esbuild\" \"yarn watch:live-server\"",
+    "watch:rescript": "rescript build -w",
+    "watch:esbuild": "esbuild ./src/Index.bs.js --outfile=./dist/bundle.js --bundle --watch",
+    "watch:live-server": "node ./live-server.js",
+    "copy:html": "cp ./public/index.html ./dist"
   },
-  "keywords": [
-    "BuckleScript"
-  ],
+  "keywords": [ "ReScript" ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -24,6 +22,9 @@
     "typescript": "4.3.4"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
+    "esbuild": "^0.12.12",
+    "live-server": "^1.2.1",
     "@babel/core": "^7.14.6",
     "@babel/plugin-transform-react-jsx": "^7.14.5",
     "@babel/plugin-transform-typescript": "^7.14.6",

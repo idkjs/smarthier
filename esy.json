@@ -1,7 +1,9 @@
 {
   "dependencies": {
-    "@opam/merlin": "*",
+    "@opam/ocaml-lsp-server": "*",
+    "@opam/ocamlfind-secondary": "*",
     "@opam/reason": "*",
-    "ocaml": "4.2.x"
+    "@opam/dune": "2.6.2",
+    "ocaml": "4.6.x"
   }
 }

@@ -12,75 +12,67 @@ module.exports = {
   output: {
     path: outputDir,
     publicPath: '/',
-    filename: 'Index.js',
+    filename: 'Index.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
-      inject: false,
+      inject: false
     }),
     new MiniCssExtractPlugin({
-      filename: 'Index.css',
+      filename: 'Index.css'
     }),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin()
   ],
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: [ '.ts', '.tsx', '.js' ],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        include: [path.resolve(__dirname, 'src')],
+        include: [ path.resolve(__dirname, 'src') ],
         loader: 'babel-loader',
         options: {
-          plugins: [
-            ['@babel/plugin-transform-typescript', {isTSX: false}],
-          ],
-        },
+          plugins: [ [ '@babel/plugin-transform-typescript', { isTSX: false } ] ]
+        }
       },
       {
         test: /\.tsx$/,
-        include: [path.resolve(__dirname, 'src')],
+        include: [ path.resolve(__dirname, 'src') ],
         loader: 'babel-loader',
         options: {
-          plugins: [
-            ['@babel/plugin-transform-typescript', {isTSX: true}],
-          ],
-        },
+          plugins: [ [ '@babel/plugin-transform-typescript', { isTSX: true } ] ]
+        }
       },
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, 'src')],
-        loader: 'babel-loader',
+        include: [ path.resolve(__dirname, 'src') ],
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: !isProd,
-            },
+            loader: MiniCssExtractPlugin.loader
           },
           'css-loader',
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                require('autoprefixer'),
-                require('precss'),
-              ],
-            },
-          },
-        ],
-      },
-    ],
+              postcssOptions: {
+                plugins: [ require('autoprefixer'), require('precss') ]
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   devServer: {
     hot: true,
@@ -88,6 +80,6 @@ module.exports = {
     contentBase: outputDir,
     port: process.env.PORT || 8000,
     historyApiFallback: true,
-    index: 'index.html',
-  },
+    index: 'index.html'
+  }
 };
